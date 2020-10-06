@@ -46,9 +46,9 @@ class SearchForm(FormAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         
-        intent = tracker.latest_message.get["intent"].get("name")
+        intent = tracker.latest_message.get("intent").get("name")
         if intent == 'goodbye':
-            return self.deactivate()
+            return (self.deactivate(), SlotSet('artista',None))
         
         if value.lower() != None:
             return {"artista": value}

@@ -23,10 +23,6 @@
 - [Artista](tipo)
 - Busca por [artista](tipo)
 
-## intent:teste
-- com certeza
-- claro
-
 ## intent:out_of_scope
 - eu quero comprar sorvete
 - onde estou
