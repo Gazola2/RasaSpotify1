@@ -1,0 +1,88 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- goodbye
+- greet
+- search_tipo
+- artista
+- out_of_scope
+- teste
+- ajuda
+- start
+- disenteresse
+entities:
+- tipo
+- album
+slots:
+  album:
+    type: text
+  artista:
+    type: text
+  case_id:
+    type: text
+  my_slot:
+    type: text
+  playlist:
+    type: text
+  requested_slot:
+    type: unfeaturized
+  suggestion:
+    type: text
+  tipo:
+    type: text
+responses:
+  utter_ajuda:
+  - buttons:
+    - payload: /search_tipo{"tipo":"artista"}
+      title: Busca por artista
+    text: Sou um bot especializado para realizar busca por artistas ou playlist.Selecione
+      como deseja realizar a busca?
+  utter_ask_album:
+  - text: Procura por qual album?
+  utter_ask_artista:
+  - text: Qual artista deseja ouvir?
+  utter_ask_playlist:
+  - text: Qual playlist gostaria de ouvir hoje?
+  utter_fallback:
+  - buttons:
+    - payload: /search_tipo{"tipo":"artista"}
+      title: Busca por artista
+    - payload: /goodbye
+      title: Ate mais
+    text: Desculpe! Não consegui entender o que precisa! Por Favor escolha uma das
+      opções
+  utter_finish:
+  - buttons:
+    - payload: /search_tipo{"tipo":"artista"}
+      title: Busca por artista
+    - payload: /goodbye
+      title: Até mais
+    text: Posso ajudar em mais alguma coisa?
+  utter_goodbye:
+  - text: Até mais e volte sempre
+  utter_greet:
+  - text: Olá, eu sou DJ, seu assitente de playlist!
+  utter_explain:
+  - text: Atualmente realizo busca por artista, digite "artista" para iniciar a busca!
+  utter_link:
+  - custom:
+      parse_mode: markdown
+      text: Clique [aqui]({link}) para abrir em outra janela
+  utter_suggestion:
+  - text: aqui estao alguns estilos que voce pode gostar!
+actions:
+- action_my_fallback
+- action_search
+- utter_ajuda
+- utter_ask_album
+- utter_ask_artista
+- utter_ask_playlist
+- utter_fallback
+- utter_finish
+- utter_goodbye
+- utter_greet
+- utter_link
+- utter_explain
+forms:
+- search_form
